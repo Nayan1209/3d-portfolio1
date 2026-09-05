@@ -78,9 +78,9 @@ function ZoneBuilding({ zone, onInteract }: { zone: Zone; onInteract: (id: strin
   const [hovered, setHovered] = useState(false);
   const click = () => onInteract(zone.id);
   const glow = hovered ? '#ffffff' : zone.color;
-
   const props = { onPointerOver: () => setHovered(true), onPointerOut: () => setHovered(false) };
-  if (zone.id === 'skills') return <group position={[zone.x, 0, zone.z} {...props}>
+
+  if (zone.id === 'skills') return <group position={[zone.x, 0, zone.z]} {...props}>
     {[0, 1, 2, 3, 4, 5].map((i) => <Block key={i} position={[0, i + 0.5, 0]} scale={[3.3 - i * 0.2, 1, 3.3 - i * 0.2]} color={i % 2 ? '#7955a9' : '#b795e8'} onClick={click} />)}
     <Block position={[0, 6.8, 0]} scale={[2.2, 0.35, 2.2]} color={glow} onClick={click} />
   </group>;
