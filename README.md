@@ -1,6 +1,6 @@
 # 3D Portfolio Website
 
-This repository contains the source code for a personal 3D portfolio built with React, TypeScript, Three.js, React Three Fiber, and GSAP. It includes animated page sections, a character scene, custom cursor interactions, and smooth transitions designed for a modern portfolio experience.
+This repository contains the source code for a personal 3D portfolio built with React, TypeScript, Three.js, React Three Fiber, and GSAP. It includes animated page sections, an interactive 3D character scene, custom cursor interactions, and smooth transitions designed for an immersive and modern portfolio experience.
 
 Live site: [https://akashrmalhotra.netlify.app/](https://akashrmalhotra.netlify.app/)
 
@@ -21,11 +21,11 @@ Live site: [https://akashrmalhotra.netlify.app/](https://akashrmalhotra.netlify.
 
 ## Features
 
-- Responsive one-page portfolio layout with reusable section components.
-- 3D character scene rendering powered by React Three Fiber and Three.js.
-- GSAP-powered animations and transitions for interactive storytelling.
-- Custom cursor, hover interactions, and scroll-driven visual effects.
-- Organized component architecture with dedicated utilities and style modules.
+- **Dynamic 3D Environment**: High-performance 3D character rendering powered by Three.js, React Three Fiber (R3F), and `@react-three/drei`.
+- **Cinematic Animations**: Fluid, timeline-based scroll animations and page transitions orchestrated via GSAP.
+- **Interactive UI Elements**: Custom magnetic cursor, hover reactions, and smooth physics-based physics interactions.
+- **Responsive Layout**: Fully responsive fluid design adapting seamlessly from mobile displays up to ultra-wide screens.
+- **Optimized Performance**: Production-ready builds with lazy loading, asset preloading, and optimal chunk splitting.
 
 ## Tech Stack
 
@@ -55,25 +55,25 @@ Live site: [https://akashrmalhotra.netlify.app/](https://akashrmalhotra.netlify.
 
 ```text
 .
-├── public/                    # Static assets
+├── public/                    # Static assets (3D models, textures, images)
 ├── src/
-│   ├── assets/                # Local media/assets
+│   ├── assets/                # Local media and SVGs
 │   ├── components/
-│   │   ├── Character/         # 3D scene + character logic/utilities
-│   │   ├── styles/            # Section/component CSS files
-│   │   ├── About.tsx
-│   │   ├── Career.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Landing.tsx
-│   │   ├── MainContainer.tsx  # Main page composition
-│   │   ├── Navbar.tsx
-│   │   ├── TechStack.tsx
-│   │   ├── WhatIDo.tsx
-│   │   └── Work.tsx
-│   ├── context/               # Global providers (loading state, etc.)
-│   ├── data/                  # Static data/content definitions
-│   ├── App.tsx
-│   └── main.tsx
+│   │   ├── Character/         # 3D scene setup, custom loaders, and character utilities
+│   │   ├── styles/            # Scoped CSS modules and section styles
+│   │   ├── About.tsx          # About Section
+│   │   ├── Career.tsx         # Career/Timeline Section
+│   │   ├── Contact.tsx        # Contact Form Section
+│   │   ├── Landing.tsx        # Hero/Landing Screen
+│   │   ├── MainContainer.tsx  # Layout and page orchestrator
+│   │   ├── Navbar.tsx         # Navigation Overlay
+│   │   ├── TechStack.tsx      # Skills display with marquee integration
+│   │   ├── WhatIDo.tsx        # Services/Expertise section
+│   │   └── Work.tsx           # Portfolio projects showcase
+│   ├── context/               # Global states (loading states, theme, animations)
+│   ├── data/                  # Content JSON / static configuration files
+│   ├── App.tsx                # Application shell
+│   └── main.tsx               # Entry point
 ├── package.json
 └── vite.config.ts
 ```
@@ -82,95 +82,105 @@ Live site: [https://akashrmalhotra.netlify.app/](https://akashrmalhotra.netlify.
 
 ### Prerequisites
 
-- Node.js 18+ (recommended)
-- npm 9+ (or compatible)
+Before setting up the project, make sure you have the following installed:
+- **Node.js**: version 18.0.0 or higher
+- **npm**: version 9.0.0 or higher (or `pnpm` / `yarn`)
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/username/3d-portfolio.git
    cd 3d-portfolio
    ```
 
-2. Install dependencies:
+2. Install all project dependencies:
 
    ```bash
    npm install
    ```
 
-3. Start the local development server:
+3. Fire up the local development server:
 
    ```bash
    npm run dev
    ```
 
-4. Open the URL shown in the terminal (typically `http://localhost:5173`).
+4. Open your browser and navigate to the URL shown in the terminal (usually `http://localhost:5173`).
 
 ## Available Scripts
 
+In the project directory, you can run the following scripts:
+
 - `npm run dev`  
-  Starts Vite dev server and exposes host for local network testing.
+  Launches the Vite development server with hot-module replacement (HMR).
 
 - `npm run build`  
-  Type-checks and builds a production-ready bundle.
+  Runs TypeScript type checking and compiles the production-optimized build into the `dist/` directory.
 
 - `npm run preview`  
-  Serves the production build locally for verification.
+  Serves the built production application locally for testing and debugging.
 
 - `npm run lint`  
-  Runs ESLint checks across the project.
+  Scans the codebase for code quality and style issues using ESLint.
 
 ## GSAP License Note
 
-This project uses the standard `gsap` package, including bonus plugins now available in the core package.
+This project uses the standard, publicly available `gsap` package, including the core plugins that are free to use in any public or commercial project.
 
-- Install dependencies with `npm install`.
-- If migrating from older setups, remove `gsap-trial` from your project.
+- Ensure you do not commit any proprietary premium `gsap-trial` packages to public repositories.
+- If you plan to use premium GSAP plugins (like `SplitText`, `DrawSVG`, or `ScrollSmoother`), make sure to configure your `.npmrc` file with your private GreenSock token.
 
-Read official installation guidance here: [GSAP Installation Docs](https://gsap.com/docs/v3/Installation/)
+For more details, refer to the [GSAP Installation Docs](https://gsap.com/docs/v3/Installation/).
 
 ## Customization Guide
 
-You can adapt this portfolio to your own profile by updating the following areas:
+Easily adapt this portfolio to reflect your own professional brand:
 
-- **Content sections**: Edit files in `src/components/` such as `About.tsx`, `Career.tsx`, `WhatIDo.tsx`, and `Work.tsx`.
-- **Data source**: Update static values in files under `src/data/`.
-- **Styling**: Modify component styles in `src/components/styles/` and global styles in `src/index.css` / `src/App.css`.
-- **3D scene behavior**: Adjust scene logic in `src/components/Character/` and related utilities.
-- **Animations**: Tweak GSAP utilities under `src/components/utils/`.
+### 1. Update Content & Copy
+Navigate to `src/data/` to update text blocks, project details, experience timelines, and social links. Most UI content is externalized here to make updates quick and painless.
+
+### 2. Swapping the 3D Character/Model
+- Place your `.gltf` or `.glb` files under the `public/` directory.
+- Update the import path and animation clips inside the `src/components/Character/` component.
+- Use tools like [gltfjsx](https://github.com/pmndrs/gltfjsx) to generate clean React Three Fiber components from your 3D models.
+
+### 3. Modifying Styling & Theme
+- **Global Variables**: Edit `src/index.css` or `src/App.css` to adjust primary/secondary theme colors, global fonts, and root variable declarations.
+- **Component Styling**: Locate specific CSS files in `src/components/styles/` to fine-tune layout alignments, margins, and responsiveness.
+
+### 4. Adjusting Animations
+Modify scroll thresholds, ease equations, and transition durations inside `src/components/utils/` or directly within the `useEffect` and `useFrame` hooks of the respective components.
 
 ## Troubleshooting
 
-- **Blank screen in development**  
-  Check browser console for module import errors and verify all dependencies are installed.
-
-- **3D performance issues on low-end devices**  
-  Reduce scene complexity and post-processing effects in the character/scene utilities.
-
-- **GSAP plugin errors**  
-  Ensure you have the correct plugin package and license configuration for your target environment.
+- **Blank screen during development / Console errors**  
+  Ensure that all assets referenced in your 3D loader paths exist inside the `public/` directory. Double-check your Node.js version.
+  
+- **Framerate drop / 3D lag on mobile devices**  
+  - You can lower the pixel ratio density on mobile platforms by configuring the `<Canvas dpr={[1, 1.5]}>` prop.
+  - Disable heavy post-processing effects (such as Bloom or depth-of-field) on mobile devices by checking the user-agent or utilizing responsive breakpoints in React.
 
 - **TypeScript build failures**  
-  Run `npm run build` and address reported type errors before deploying.
+  Run `npm run build` locally to identify type mismatch errors before pushing changes to your deployment branch.
 
 ## Deployment
 
-1. Create a production build:
+### Deploying to Netlify / Vercel
 
+The application is fully configured for seamless deployments on Netlify, Vercel, or Cloudflare Pages.
+
+1. Build the project locally to verify there are no build errors:
    ```bash
    npm run build
    ```
-
-2. Validate locally:
-
-   ```bash
-   npm run preview
-   ```
-
-3. Deploy the generated `dist/` folder to your hosting provider (for example Vercel, Netlify, or Cloudflare Pages).
+2. Connect your GitHub repository to your hosting provider.
+3. Configure the build settings:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+4. Set up environment variables if necessary, then click **Deploy**.
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [MIT License](LICENSE). Feel free to modify and adapt it for your own personal portfolio!
